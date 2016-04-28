@@ -1,0 +1,22 @@
+{
+  "name": "tomi-node-chat-app",
+  "description": "A web client for my node chat app",
+  "main": "index.js",
+  "authors": [
+    "Tomi Novak"
+  ],
+  "license": "GPL-3.0",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5",
+    "jquery": "^2.2.3"
+  }
+}

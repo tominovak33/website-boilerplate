@@ -1,0 +1,12 @@
+{
+  "name": "Tomi Node Chat App",
+  "short_name": "TomiNodeChat",
+  "icons": [{
+    "src": "icons/favicon.ico",
+    "sizes": "128x128",
+    "density": 2
+  }],
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "start_url": "index.html"
+}
