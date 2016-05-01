@@ -1,6 +1,6 @@
 {
-  "name": "Tomi Node Chat App",
-  "short_name": "TomiNodeChat",
+  "name": "Tomi Website Boilerplate",
+  "short_name": "Tomi Website",
   "icons": [{
     "src": "icons/favicon.ico",
     "sizes": "128x128",

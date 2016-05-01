@@ -1,1 +1,0 @@
-angular.module("nodeChatApp",["ngRoute"]),angular.module("nodeChatApp",["ngRoute"]).config(["$routeProvider",function(e){e.when("/",{controller:"MainCtrl as nodeChat",templateUrl:"templates/home.html"})}]),angular.module("nodeChatApp").controller("MainCtrl",["$scope",function(e){e.appName="Node Chat"}]);

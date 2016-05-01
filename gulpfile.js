@@ -6,6 +6,7 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
+var uglifycss = require('gulp-uglifycss');
 var useref = require('gulp-useref');
 var sourcemaps = require('gulp-sourcemaps');
 var runSequence = require('gulp-run-sequence');
@@ -17,49 +18,50 @@ var paths = {
 };
 
 gulp.task('sass', function () {
-    return gulp.src(['./app/sass/*.scss'])
+    return gulp.src(['./src/sass/*.scss'])
         .pipe(sass().on('error', sass.logError))
         .pipe(concat('style.css'))
-        .pipe(gulp.dest('./dist/css'));
+        .pipe(uglifycss())
+        .pipe(gulp.dest('./src/css'));
 });
 
 gulp.task('move-images', function() {
-    return gulp.src(['app/images/*'])
+    return gulp.src(['src/images/*'])
         .pipe(gulp.dest('dist/images'));
 });
 
 gulp.task('move-misc', function() {
-    return gulp.src(['app/manifest.json'])
+    return gulp.src(['src/manifest.json'])
         .pipe(gulp.dest('dist'));
 });
 
 gulp.task('move-html', function() {
-    return gulp.src(['app/*.html', 'app/templates/*.html'], {base: './app/'})
+    return gulp.src(['src/*.html', 'src/templates/**/*.*'], {base: './src/'})
         .pipe(useref({searchPath: [paths.app]}))
         .pipe(gulp.dest('dist'));
 });
 
 gulp.task('move-icons', function() {
-    return gulp.src(['app/icons/*'])
+    return gulp.src(['src/icons/*'])
         .pipe(gulp.dest('dist/icons'));
 });
 
 //gulp.task('move-js', ['js'], function() {
-//    return gulp.src(['/app/scripts'])
+//    return gulp.src(['/src/scripts'])
 //        .pipe(gulp.dest('dist/scripts'));
 //});
 
 gulp.task('watch:sass', function () {
-    gulp.watch('./app/sass/**/*.scss', ['sass']);
+    gulp.watch('./src/sass/**/*.scss', ['sass']);
 });
 
 gulp.task('js', function() {
-    gulp.src(['app/scripts/ng.js','app/scripts/**/*.js', '!app/scripts/app.js'])
+    gulp.src(['src/scripts/ng.js','src/scripts/**/*.js', '!src/scripts/app.js'])
         //.pipe(sourcemaps.init())
         .pipe(concat('app.js'))
         .pipe(uglify())
         //.pipe(sourcemaps.write())
-        .pipe(gulp.dest('app/scripts'))
+        .pipe(gulp.dest('src/scripts'))
 });
 
 //gulp.task('watch:js', ['js'], function () {
@@ -76,8 +78,8 @@ gulp.task('build', ['sass', 'js'],  function () {
 });
 
 gulp.task('watch:all', ['build'], function () {
-    gulp.watch('app/**/*.*', ['build']);
-    gulp.watch('app/*.*', ['build']);
+    gulp.watch('src/**/*.*', ['build']);
+    gulp.watch('src/*.*', ['build']);
 });
 
 gulp.task('serve', function() {

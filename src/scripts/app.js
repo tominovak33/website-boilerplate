@@ -1,0 +1,1 @@
+function tomiScroll(o,t){var c=$("html,body"),n=$("#"+o);c.animate({scrollTop:n.offset().top},t)}var backToTopButton=document.getElementById("backToTop");backToTopButton.addEventListener("click",function(){tomiScroll("page",800)});
