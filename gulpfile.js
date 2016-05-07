@@ -90,11 +90,10 @@ gulp.task('buildContentPages', function () {
 });
 
 gulp.task('serve', function() {
-    connect.server({
-        root: 'dist/',
-        port: 8080,
-        livereload: true
-    });
+  runSequence('build');
+  connect.server({
+      root: 'dist/',
+      port: 8080,
+      livereload: true
+  });
 });
-
-gulp.task('live', ['serve', 'watch:all']);
