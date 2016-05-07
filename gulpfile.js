@@ -11,6 +11,7 @@ var useref = require('gulp-useref');
 var sourcemaps = require('gulp-sourcemaps');
 var runSequence = require('gulp-run-sequence');
 var connect = require('gulp-connect');
+var template = require('gulp-template-html');
 
 var paths = {
     app: require('./bower.json').appPath || 'app',
@@ -73,13 +74,19 @@ gulp.task('move', ['move-images', 'move-misc', 'move-icons', 'move-html'],  func
 });
 
 gulp.task('build', ['sass', 'js'],  function () {
-    runSequence('move');
+    runSequence('buildContentPages','move');
     connect.reload();
 });
 
 gulp.task('watch:all', ['build'], function () {
     gulp.watch('src/**/*.*', ['build']);
     gulp.watch('src/*.*', ['build']);
+});
+
+gulp.task('buildContentPages', function () {
+    return gulp.src(['src/pages/*.html'], {base: './src/pages/'})
+      .pipe(template('src/templates/template.html'))
+      .pipe(gulp.dest('src/'));
 });
 
 gulp.task('serve', function() {

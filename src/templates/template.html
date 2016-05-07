@@ -1,1 +1,37 @@
-<!-- Add inner templates to this folder -->
+<!doctype html>
+<html lang="en" id="page">
+<head>
+    <meta charset="utf-8">
+    <title><!--build:pageTitle--></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/ico" href="icons/favicon.ico" sizes="128x128" />
+    <!-- build:css({.tmp,src}) styles/main.css -->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- endbuild -->
+</head>
+<body>
+<!--build:pageContent-->
+<footer class="site-footer color1" data-color-style-type="background-color">
+    <p>&copy; 2016 Tomi Novak</p>
+    <a class="btn btn-secondary" id="backToTop" role="button">Back To Top</a>
+</footer>
+<!-- build:js scripts/vendor.js -->
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- endbuild -->
+<!-- build:js({.tmp,src}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<!-- endbuild -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+</script>
+</body>
+</html>
